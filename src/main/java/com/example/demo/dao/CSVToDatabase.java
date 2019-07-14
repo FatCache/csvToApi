@@ -12,6 +12,7 @@ public interface CSVToDatabase {
 		Id,title, description, author, tags, create_at, updated_at
 	}
 
+	public void initDatabase();
 	public List<BlogPost> csvBlogToDatabase();
 	
 }
