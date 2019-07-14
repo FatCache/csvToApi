@@ -44,13 +44,10 @@ public class BlogPostControllerRestTest {
 
 	    @MockBean
 	    private BlogPostRepository blogpostrepo;
-	    
-	    @MockBean
-	    private CSVToDatabaseImp csvtoDatabaserepo;
+	   
 
 	    @Before
 	    public void init() {
-	    	csvtoDatabaserepo.initDatabase();
 	        BlogPost bp = new BlogPost();
 			LocalDate ldc = LocalDate.of(1991,Month.APRIL,28);
 			LocalDate ldu = LocalDate.of(2019,Month.JULY,14);
@@ -91,6 +88,8 @@ public class BlogPostControllerRestTest {
 
 	        assertEquals(MediaType.APPLICATION_JSON_UTF8, response.getHeaders().getContentType());
 	        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+	        
+	        assertEquals(expected, response.getBody().substring(45));
 
 	    }
 
