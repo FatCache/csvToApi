@@ -16,7 +16,6 @@ public class DemoApplication {
 	
     @Bean
     CommandLineRunner initDatabase(CSVToDatabase repository) {
-    	
         return args -> {
         	repository.initDatabase();
         };

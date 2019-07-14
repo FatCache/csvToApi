@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Date;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -86,5 +87,6 @@ public class BlogPost implements Serializable {
 		
 		return sb.toString();
 	}
+
 
 }

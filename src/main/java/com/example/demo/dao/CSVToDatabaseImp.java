@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -60,6 +61,7 @@ public class CSVToDatabaseImp implements CSVToDatabase {
 			//TODO System.out.println("IO Exception some");
 			io.printStackTrace();
 		}
+		
 		
 		blogpostRepository.saveAll(blogPosts);
 		
