@@ -28,6 +28,12 @@ public class CSVToDatabaseImp implements CSVToDatabase {
 
 	@Autowired
 	BlogPostRepository blogpostRepository;
+	
+	@Override
+	public void initDatabase() {
+		csvBlogToDatabase();
+		return;
+	}
 
 	@Override
 	public List<BlogPost> csvBlogToDatabase()  {
