@@ -4,25 +4,58 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Date;
+import java.time.format.DateTimeFormatter;
+
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 /**
  * Bean to represent a blog post
  * @author aahmed
  *
  */
+@Validated
 @Table("blogpost_table")
 public class BlogPost implements Serializable {
 	
 	@PrimaryKey
+	@NotNull
 	private Integer id;
+	
+	@NotEmpty(message = "Please provide a title")
+	@Size(min=5,max = 140,message="Title should between 0 & 140 characters long")
 	private String title;
+	
+	@NotEmpty(message = "Please provide a description")
 	private String description;
+	
+	@NotEmpty(message = "Please provide a author")
 	private String author;
+	
+	@NotEmpty(message = "Please provide tags")
+	@Size(min=3,max=20,message="Tag should be between 3 to 20 characters long")
 	private String tags;
+	
+	@NotNull(message="Invalid: Either wrong format MM-dd-yyyy or null")
+	@PastOrPresent
+	@JsonFormat(pattern = "MM-dd-yyyy")
 	private LocalDate create_at;
+	
+	@NotNull(message="Invalid: Either wrong format MM-dd-yyyy or null")
+	@JsonFormat(pattern = "MM-dd-yyyy")
 	private LocalDate updated_at;
 	
 	
@@ -87,6 +120,8 @@ public class BlogPost implements Serializable {
 		
 		return sb.toString();
 	}
+	
+	
 
 
 }

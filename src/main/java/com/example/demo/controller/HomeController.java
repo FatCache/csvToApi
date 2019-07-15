@@ -23,9 +23,6 @@ public class HomeController {
 		
 		return csvToDatabase.csvBlogToDatabase();
 	}
-	
-	
-		
 
 
 }
