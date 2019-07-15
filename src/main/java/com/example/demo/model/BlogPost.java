@@ -16,7 +16,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 /**
- * Bean to represent a blog post
+ * JavaBean to represent each entry from CSV as BlogPost object.
+ * Contains validation checks which invokes BlogPostExceptionHandler if not a valid bean
  * @author aahmed
  *
  */

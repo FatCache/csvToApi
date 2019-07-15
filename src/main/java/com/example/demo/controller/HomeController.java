@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dao.CSVToDatabase;
 import com.example.demo.model.BlogPost;
 
+/**
+ * Basic controller to invoke CSV to database population manually
+ * @author aahmed
+ *
+ */
 @RestController
 @RequestMapping("init")
 public class HomeController {

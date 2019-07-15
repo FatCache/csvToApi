@@ -19,6 +19,11 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.BlogPost;
 import com.example.demo.repository.BlogPostRepository;
 
+/**
+ * Maps the CSV entry to BlogPost JavaBean which is saved into the cassandra database
+ * @author aahmed
+ *
+ */
 @Repository
 public class CSVToDatabaseImp implements CSVToDatabase {
 
@@ -56,7 +61,6 @@ public class CSVToDatabaseImp implements CSVToDatabase {
 			//TODO System.out.println("IO Exception some");
 			io.printStackTrace();
 		}
-		
 		
 		blogpostRepository.saveAll(blogPosts);
 		

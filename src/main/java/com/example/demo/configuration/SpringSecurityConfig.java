@@ -6,6 +6,12 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * Uses Spring Security to perform user authentication on RESTFul end-points
+ * Two roles currently -> ADMIN && USER
+ * @author aahmed
+ *
+ */
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	

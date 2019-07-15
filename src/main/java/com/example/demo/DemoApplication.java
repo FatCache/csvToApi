@@ -7,6 +7,11 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.demo.dao.CSVToDatabase;
 
+/**
+ * On start, it invoke CSVToDatabase's `initDatabase()` to populate the Cassandra database
+ * @author aahmed
+ *
+ */
 @SpringBootApplication
 public class DemoApplication {
 

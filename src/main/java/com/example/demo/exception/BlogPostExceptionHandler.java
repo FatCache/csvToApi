@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 
 /**
- * Exception Handler for Invalid MethodArguments for Blogpost Object
+ * Exception Handler to handle if JavaBean BlogPost does not follow the specification 
  * @author aahmed
  *
  */

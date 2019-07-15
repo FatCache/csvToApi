@@ -24,7 +24,11 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import com.example.demo.model.BlogPost;
 import com.example.demo.repository.BlogPostRepository;
-
+/**
+ * Creates the RESTFul end-points to the Cassandra Database
+ * @author aahmed
+ *
+ */
 @RestController
 @RequestMapping("blogpost")
 public class BlogPostController {
