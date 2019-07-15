@@ -2,8 +2,6 @@ package com.example.demo.dao;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.example.demo.model.BlogPost;
 
 

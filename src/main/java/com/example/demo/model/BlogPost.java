@@ -2,21 +2,14 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.Date;
-import java.time.format.DateTimeFormatter;
 
-
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
 
 import com.fasterxml.jackson.annotation.JsonFormat;

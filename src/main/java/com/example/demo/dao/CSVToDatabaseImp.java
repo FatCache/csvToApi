@@ -1,6 +1,5 @@
 package com.example.demo.dao;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,17 +9,13 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.dao.CSVToDatabase.HEADERS;
 import com.example.demo.model.BlogPost;
 import com.example.demo.repository.BlogPostRepository;
 
