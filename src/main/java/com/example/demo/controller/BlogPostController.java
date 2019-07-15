@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+	package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,13 +7,11 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.data.cassandra.core.query.CassandraPageRequest;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,10 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import com.example.demo.dao.CSVToDatabase;
 import com.example.demo.model.BlogPost;
 import com.example.demo.repository.BlogPostRepository;
 
@@ -67,7 +64,10 @@ public class BlogPostController {
 	 * @return
 	 */
 	@GetMapping("/all/{page}")
-	public List<BlogPost> getBlogPostsPaginated(@PathVariable Integer page) {
+	public List<BlogPost> getBlogPostsPaginated( @PathVariable Integer page) {
+		if(page < 0)
+			throw new MethodArgumentTypeMismatchException(page, Integer.class, "page",null, new Throwable());
+		
 		final int size = 2;
 		int currpage = 0;
 		
@@ -87,7 +87,7 @@ public class BlogPostController {
 	}
 
 	@PutMapping("/{id}")
-	public Optional<BlogPost> updateBlogPost(@RequestBody BlogPost nbp, @PathVariable Integer id) {
+	public Optional<BlogPost> updateBlogPost(@Valid @RequestBody BlogPost nbp, @PathVariable Integer id) {
 		Optional<BlogPost> optionalBp = blogspotrepo.findById(id);
 		if (optionalBp.isPresent()) {
 			BlogPost bp = optionalBp.get();
@@ -100,6 +100,7 @@ public class BlogPostController {
 			bp.setUpdated_at(nbp.getUpdated_at());
 			blogspotrepo.save(bp);
 		}
+
 		return optionalBp;
 	}
 
@@ -111,11 +112,14 @@ public class BlogPostController {
 	}
 
 	@PostMapping("/")
-	public BlogPost addBlogSpot(@RequestBody BlogPost bp) {
+	public BlogPost addBlogSpot(@Valid @RequestBody BlogPost bp) {
 		Integer id = new Random().nextInt();
 		bp.setId(id);
 		blogspotrepo.save(bp);
 		return bp;
 	}
+	
+	
+
 
 }
