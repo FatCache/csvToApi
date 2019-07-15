@@ -8,6 +8,6 @@ import com.example.demo.model.BlogPost;
 
 public interface BlogPostRepository extends CrudRepository<BlogPost, Integer> {
 	
-	Slice<BlogPost> findAll(Pageable pr);
+	Slice<BlogPost> findAll(Pageable pageable);
 
 }
