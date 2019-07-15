@@ -2,18 +2,18 @@
 
 Web services which exposes RESTFUL endpoint for a CSV file using Spring Boot, Spring Data, Spring Security & Cassandra.
 
->### How to Run:
+### How to Run:
 
 - Make sure keyspace with name `mykeyspace` exist in your Cassandra Instance
 - Compile the project in Eclipse OR compile via JenkinsFile 
 - Deploy it on a Tomcat web server
 - Enter `localhost:8082` endpoints in your favorite REST client such as  in [RESTED](https://addons.mozilla.org/en-US/firefox/addon/rested/) or [POSTMAN](https://www.getpostman.com/)
 
->### To Run Test
+### To Run Test
  
  Enter in the terminal `mvn test`
 
->### Authentication Logic on Endpoints
+### Authentication Logic on Endpoints
 A a user in role `User` can perform `GET` at:
 
 Retrieve all entries
