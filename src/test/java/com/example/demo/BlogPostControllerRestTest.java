@@ -64,7 +64,7 @@ public class BlogPostControllerRestTest {
 	    @Test
 	    public void find_login_ok() throws Exception {
 
-	        String expected = "{\"id\":1000,\"title\":\"title\",\"description\":\"Testing\",\"author\":\"abdusamed\",\"tags\":\"tag\",\"create_at\":\"1991-04-28\",\"updated_at\":\"2019-07-14\"}";
+	        String expected = "{\"id\":1000,\"title\":\"title\",\"description\":\"Testing\",\"author\":\"abdusamed\",\"tags\":\"tag\",\"create_at\":\"04-28-1991\",\"updated_at\":\"07-14-2019\"}";
 
 	        ResponseEntity<String> response = restTemplate
 	                .withBasicAuth("user", "password")
